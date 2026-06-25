@@ -1,22 +1,20 @@
-import React from "react";
-
-const Like = () => {
-    const [quant, setQuant] = React.useState(0);
+import React from 'react'
+const Like = ({ quantLike, setQuatLike }) => {
     const like = () => {
-        setQuant(quant + 1);
+        setQuatLike(quantLike + 1);
     }
-    return(
+    return (
         <button type="button" onClick={like}>
-            👍{quant}
+            👍{quantLike}
         </button>
     )
 }
-
 const NovoPost = () => {
-    const [texto, setTexto] = React.useState("Valor inicial do Estado");
-    const publicar = (event) =>{
-        event.preventDefault(); // previne ação padrão do formrulário.
-        if(!texto.trim()) return;
+    const [texto, setTexto] = React.useState("");
+    const [quantLike, setQuatLike] = React.useState(0);
+    const publicar = (event) => {
+        event.preventDefault();
+        if (!texto.trim()) return;
         alert(texto);
         setTexto("");
     }
@@ -24,24 +22,21 @@ const NovoPost = () => {
         <>
             <form onSubmit={publicar}>
                 <textarea
-                value={texto}
-                onChange={e => setTexto(e.target.value)}
-                rows={3}
-                cols={50}
-                placeholder="Insira o texto do post"
+                    value={texto}
+                    onChange={e => setTexto(e.target.value)}
+                    rows={3}
+                    cols={50}
+                    placeholder='Insita o texto do post'
                 >
                 </textarea>
                 <div>
                     <button type="submit">Publicar</button>
-                    <Like />
-                    <button type="reset">Limpar</button>
-                </div>                
+                    <Like quantLike={quantLike} setQuatLike={setQuatLike} />
+                    <button type="reset"> Limpar</button>
+                </div>
             </form>
-            <p>
-                texto
-            </p>
+            <p>Texto</p>
         </>
     )
 }
-
 export default NovoPost

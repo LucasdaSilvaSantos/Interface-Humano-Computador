@@ -8,7 +8,7 @@ import NovoPost from './NovoPost'
 const App = () => {
   return (
     <div>
-      <NovoPost></NovoPost>
+      <NovoPost />
     </div>
   )
 }

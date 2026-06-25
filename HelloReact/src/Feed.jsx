@@ -2,6 +2,7 @@ const posts = [
     { id: 1, autor: "Ana", texto: "Primeiro post!" },
     { id: 2, autor: "Leo", texto: "React é top!" },
 ];
+
 const Post = ({ id, autor, texto }) => {
     return (
         <article>
@@ -10,11 +11,12 @@ const Post = ({ id, autor, texto }) => {
         </article>
     )
 }
+
 const Feed = () => {
     return (
         <div>
             {
-                posts.map(post => 
+                posts.map(post =>
                     <Post key={post.id} {...post} />
                 )
             }
